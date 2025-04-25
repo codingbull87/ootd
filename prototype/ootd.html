@@ -340,6 +340,15 @@
         generateBtn.addEventListener('click', () => {
             // 更新弹窗内容以反映所选风格
             const selectedStyle = localStorage.getItem('selectedStyle') || '日系潮流风';
+            
+            // 存储选择的风格，供详情页面使用
+            localStorage.setItem('selectedStyle', selectedStyle);
+            
+            // 打开详情页面
+            window.location.href = 'ootd-popup.html';
+            
+            /* 
+            // 下面是原来的弹窗代码，现在改为页面跳转
             const popupTitle = ootdPopup.querySelector('h3');
             popupTitle.textContent = `今日OOTD推荐 · ${selectedStyle}`;
             
@@ -348,6 +357,7 @@
                 ootdPopup.querySelector('.popup').classList.add('popup-enter-active');
                 ootdPopup.querySelector('.popup').classList.remove('popup-enter');
             }, 10);
+            */
         });
         
         closePopup.addEventListener('click', () => {

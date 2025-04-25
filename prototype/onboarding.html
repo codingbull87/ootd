@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首次使用引导 - 天气穿搭</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            padding-bottom: 70px;
+        }
+        .onboarding-card {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 小程序状态栏 -->
+    <div class="bg-purple-600 text-white p-3 flex justify-between items-center">
+        <div class="text-sm">12:30</div>
+        <div class="text-sm">
+            <i class="fas fa-signal mr-1"></i>
+            <i class="fas fa-wifi mr-1"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <!-- 小程序标题栏 -->
+    <div class="bg-purple-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold">个人资料设置</h1>
+        <div>
+            <i class="fas fa-cog text-white text-lg"></i>
+        </div>
+    </div>
+
+    <!-- 首次进入引导 -->
+    <div id="onboarding" class="p-4">
+        <div class="text-center my-10">
+            <i class="fas fa-user-circle text-purple-500 text-7xl mb-3"></i>
+            <h2 class="text-2xl font-bold">欢迎使用天气穿搭</h2>
+            <p class="text-gray-500 mt-2">完善你的个人信息，获取专属穿搭推荐</p>
+        </div>
+        
+        <!-- 城市选择 -->
+        <div class="onboarding-card bg-white rounded-xl shadow-md p-5 mb-5">
+            <h3 class="text-lg font-semibold mb-4">请选择你的城市</h3>
+            
+            <div class="mb-4 relative">
+                <div class="flex items-center bg-gray-100 rounded-lg px-4 py-3">
+                    <i class="fas fa-map-marker-alt text-purple-500 mr-3"></i>
+                    <input type="text" placeholder="输入你所在的城市" class="bg-transparent w-full outline-none">
+                </div>
+                <div class="absolute right-4 top-3">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-3">
+                <div class="bg-purple-100 text-purple-700 rounded-lg py-2 px-4 text-center font-medium">
+                    北京
+                </div>
+                <div class="bg-gray-100 text-gray-700 rounded-lg py-2 px-4 text-center">
+                    上海
+                </div>
+                <div class="bg-gray-100 text-gray-700 rounded-lg py-2 px-4 text-center">
+                    广州
+                </div>
+                <div class="bg-gray-100 text-gray-700 rounded-lg py-2 px-4 text-center">
+                    深圳
+                </div>
+                <div class="bg-gray-100 text-gray-700 rounded-lg py-2 px-4 text-center">
+                    杭州
+                </div>
+                <div class="bg-gray-100 text-gray-700 rounded-lg py-2 px-4 text-center">
+                    成都
+                </div>
+            </div>
+        </div>
+        
+        <!-- 性别选择 -->
+        <div class="onboarding-card bg-white rounded-xl shadow-md p-5 mb-5">
+            <h3 class="text-lg font-semibold mb-4">请选择你的性别</h3>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-purple-100 border-2 border-purple-600 rounded-xl p-4 flex items-center">
+                    <div class="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-mars text-purple-600 text-xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="font-semibold text-purple-900">男生</p>
+                        <p class="text-xs text-purple-700 mt-1">运动休闲、日系潮流风等</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 border border-gray-200 rounded-xl p-4 flex items-center">
+                    <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-venus text-gray-600 text-xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="font-semibold text-gray-900">女生</p>
+                        <p class="text-xs text-gray-700 mt-1">甜酷风、温柔风等</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 个人描述 -->
+        <div class="onboarding-card bg-white rounded-xl shadow-md p-5 mb-6">
+            <h3 class="text-lg font-semibold mb-4">添加个人描述</h3>
+            
+            <textarea placeholder="描述一下你的穿衣风格喜好、身材特点等，帮助我们推荐更适合你的穿搭" class="w-full h-24 bg-gray-100 rounded-lg p-3 mb-4 outline-none resize-none"></textarea>
+            
+            <div class="text-right text-xs text-gray-500 mb-2">0/100</div>
+        </div>
+        
+        <!-- 完成按钮 -->
+        <button id="completeBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 flex justify-center items-center mb-6">
+            <i class="fas fa-check mr-2"></i>
+            完成设置
+        </button>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around items-center p-3">
+        <a href="ootd.html" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-tshirt text-xl"></i>
+            <span class="text-xs mt-1">OOTD</span>
+        </a>
+        <div class="flex flex-col items-center tab-active text-purple-600 border-b-2 border-purple-600">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </div>
+    </div>
+
+    <script>
+        // 性别选择
+        const maleOption = document.querySelector('.bg-purple-100.border-2');
+        const femaleOption = document.querySelector('.bg-gray-100.border');
+        
+        maleOption.addEventListener('click', () => {
+            maleOption.classList.remove('bg-gray-100', 'border');
+            maleOption.classList.add('bg-purple-100', 'border-2', 'border-purple-600');
+            
+            femaleOption.classList.remove('bg-purple-100', 'border-2', 'border-purple-600');
+            femaleOption.classList.add('bg-gray-100', 'border', 'border-gray-200');
+            
+            localStorage.setItem('userGender', 'male');
+        });
+        
+        femaleOption.addEventListener('click', () => {
+            femaleOption.classList.remove('bg-gray-100', 'border');
+            femaleOption.classList.add('bg-purple-100', 'border-2', 'border-purple-600');
+            
+            maleOption.classList.remove('bg-purple-100', 'border-2', 'border-purple-600');
+            maleOption.classList.add('bg-gray-100', 'border', 'border-gray-200');
+            
+            localStorage.setItem('userGender', 'female');
+        });
+        
+        // 城市选择
+        const cityOptions = document.querySelectorAll('.grid.grid-cols-3.gap-3 div');
+        cityOptions.forEach(city => {
+            city.addEventListener('click', () => {
+                // 重置所有样式
+                cityOptions.forEach(c => {
+                    c.classList.remove('bg-purple-100', 'text-purple-700', 'font-medium');
+                    c.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                
+                // 设置选中样式
+                city.classList.remove('bg-gray-100', 'text-gray-700');
+                city.classList.add('bg-purple-100', 'text-purple-700', 'font-medium');
+            });
+        });
+        
+        // 处理字数统计
+        const textarea = document.querySelector('textarea');
+        const charCount = document.querySelector('.text-right.text-xs');
+        
+        textarea.addEventListener('input', () => {
+            const count = textarea.value.length;
+            charCount.textContent = `${count}/100`;
+            
+            if (count > 100) {
+                charCount.classList.add('text-red-500');
+                textarea.value = textarea.value.substring(0, 100);
+                charCount.textContent = `100/100`;
+            } else {
+                charCount.classList.remove('text-red-500');
+            }
+        });
+        
+        // 完成按钮点击事件
+        const completeBtn = document.getElementById('completeBtn');
+        
+        completeBtn.addEventListener('click', () => {
+            // 保存用户信息到本地存储
+            const city = document.querySelector('.bg-purple-100.text-purple-700').textContent.trim();
+            const description = document.querySelector('textarea').value || '潮流穿搭爱好者';
+            
+            localStorage.setItem('userCity', city);
+            localStorage.setItem('userDescription', description);
+            localStorage.setItem('userProfileCompleted', 'true');
+            
+            // 跳转到个人资料页面
+            window.location.href = 'profile.html';
+        });
+    </script>
+</body>
+</html> 

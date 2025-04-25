@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOTD 穿搭推荐 - 天气穿搭</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            padding-bottom: 70px;
+        }
+        .weather-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .weather-card {
+            transition: all 0.3s ease;
+        }
+        .weather-card:hover {
+            transform: translateY(-5px);
+        }
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+        }
+        .tab-active {
+            color: #8B5CF6;
+            border-bottom: 2px solid #8B5CF6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 小程序状态栏 -->
+    <div class="bg-purple-600 text-white p-3 flex justify-between items-center">
+        <div class="text-sm">12:30</div>
+        <div class="text-sm">
+            <i class="fas fa-signal mr-1"></i>
+            <i class="fas fa-wifi mr-1"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <!-- 小程序标题栏 -->
+    <div class="bg-purple-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold">今日OOTD推荐</h1>
+        <div>
+            <i class="fas fa-share-alt text-white text-lg mr-3"></i>
+            <i class="fas fa-ellipsis-v text-white text-lg"></i>
+        </div>
+    </div>
+
+    <!-- OOTD推荐内容 -->
+    <div class="p-4">
+        <!-- 天气卡片简略信息 -->
+        <div class="weather-card bg-white rounded-xl shadow-md p-5 mb-5">
+            <div class="flex justify-between items-center mb-2">
+                <h2 class="text-lg font-semibold">北京 · 晴朗</h2>
+                <span class="text-sm text-gray-500">10月15日 周五</span>
+            </div>
+            
+            <div class="flex items-center">
+                <div class="flex-1 text-center">
+                    <i class="fas fa-sun text-yellow-500 text-4xl"></i>
+                </div>
+                <div class="flex-1 text-center">
+                    <div class="text-3xl font-bold">21°C</div>
+                    <div class="text-gray-500 text-sm">体感温度：23°C</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 穿搭风格 -->
+        <div class="bg-white rounded-xl shadow-md p-5 mb-5">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold">日系潮流风</h3>
+                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">已选择</span>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-3">
+                简约、舒适且注重细节的日系风格，搭配自然色调和精致配饰，营造清新文艺感。
+            </p>
+        </div>
+        
+        <!-- 今日穿搭建议 -->
+        <div class="bg-white rounded-xl shadow-md p-5 mb-5">
+            <h3 class="text-lg font-semibold mb-4">穿搭建议</h3>
+            <p class="text-gray-600">
+                今天是阳光明媚的一天，建议搭配宽松版型的白色T恤，搭配直筒牛仔裤和复古运动鞋，日系风格十足。可以加一件浅色衬衫作为外套，既防晒又时尚。配饰方面可选择简约手表和渔夫帽点缀整体造型。
+            </p>
+        </div>
+        
+        <!-- 穿搭灵感图片 -->
+        <div class="bg-white rounded-xl shadow-md p-5 mb-5">
+            <h3 class="text-lg font-semibold mb-4">穿搭灵感</h3>
+            
+            <div class="carousel-container rounded-xl overflow-hidden">
+                <div class="carousel-slide">
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="日系潮流穿搭" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1613591785690-970ce6ed5d94?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="日系潮流穿搭" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1536766768598-e09213fdcf22?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="日系潮流穿搭" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+                
+                <div class="absolute bottom-3 left-0 right-0 flex justify-center space-x-2">
+                    <div class="w-2 h-2 rounded-full bg-white bg-opacity-100"></div>
+                    <div class="w-2 h-2 rounded-full bg-white bg-opacity-50"></div>
+                    <div class="w-2 h-2 rounded-full bg-white bg-opacity-50"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 操作按钮 -->
+        <div class="flex space-x-3 mb-6">
+            <button class="flex-1 bg-purple-600 text-white font-medium py-3 rounded-lg flex justify-center items-center">
+                <i class="fas fa-heart mr-2"></i> 收藏
+            </button>
+            <button class="flex-1 bg-purple-100 text-purple-600 font-medium py-3 rounded-lg flex justify-center items-center">
+                <i class="fas fa-share-alt mr-2"></i> 分享
+            </button>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around items-center p-3">
+        <a href="ootd.html" class="flex flex-col items-center tab-active text-purple-600">
+            <i class="fas fa-tshirt text-xl"></i>
+            <span class="text-xs mt-1">OOTD</span>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center text-gray-500">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+
+    <script>
+        // 从本地存储获取用户选择的穿搭风格
+        function getSelectedStyle() {
+            return localStorage.getItem('selectedStyle') || '日系潮流风';
+        }
+        
+        // 从本地存储获取用户选择的城市
+        function getUserCity() {
+            return localStorage.getItem('userCity') || '北京';
+        }
+        
+        // 获取用户性别
+        function getUserGender() {
+            return localStorage.getItem('userGender') || 'male';
+        }
+        
+        // 页面加载时更新显示内容
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedStyle = getSelectedStyle();
+            const userCity = getUserCity();
+            
+            // 更新标题
+            document.querySelector('h1.text-xl').textContent = `今日OOTD推荐`;
+            
+            // 更新天气城市
+            document.querySelector('h2.text-lg').textContent = `${userCity} · 晴朗`;
+            
+            // 更新风格名称
+            document.querySelector('.bg-white.rounded-xl.shadow-md.p-5.mb-5 h3').textContent = selectedStyle;
+            
+            // 根据风格更新风格描述
+            let styleDescription = '';
+            
+            // 根据性别和选择的风格更新描述
+            const gender = getUserGender();
+            
+            if (gender === 'male') {
+                if (selectedStyle === '日系潮流风') {
+                    styleDescription = '简约、舒适且注重细节的日系风格，搭配自然色调和精致配饰，营造清新文艺感。';
+                } else if (selectedStyle === '韩系简约风') {
+                    styleDescription = '极简主义设计，强调干净利落的线条与版型，中性色调为主，打造优雅随性的气质。';
+                } else if (selectedStyle === '运动休闲风') {
+                    styleDescription = '舒适实用，结合运动元素与日常服饰，活力十足，适合各种休闲场合。';
+                } else if (selectedStyle === '商务精英风') {
+                    styleDescription = '正式且专业，强调剪裁合身，细节精致，展现职场自信与个人品味。';
+                } else if (selectedStyle === '户外机能风') {
+                    styleDescription = '注重功能性与实用性，多口袋设计，防水面料，科技感十足的户外装备风格。';
+                }
+            } else {
+                if (selectedStyle === '甜酷风') {
+                    styleDescription = '融合甜美与酷感元素，明亮色彩搭配中性单品，展现独立且不失少女感的风格。';
+                } else if (selectedStyle === '温柔风') {
+                    styleDescription = '柔和的色调，飘逸的面料，注重细节与质感，营造柔美优雅的女性气质。';
+                } else if (selectedStyle === '酷酷风') {
+                    styleDescription = '大胆前卫，以黑白灰为主色调，融合街头潮流元素，展现独立不羁的个性。';
+                } else if (selectedStyle.includes('品牌风')) {
+                    styleDescription = '结合当季流行趋势与经典设计，注重品质与细节，展现个人品味与时尚触觉。';
+                } else if (selectedStyle === '新女系') {
+                    styleDescription = '现代都市女性风格，平衡舒适与时尚，实用且个性化的日常穿搭。';
+                } else if (selectedStyle === '运动休闲风') {
+                    styleDescription = '活力舒适，运动元素与休闲单品的完美结合，展现健康活力的生活态度。';
+                } else if (selectedStyle === '2K风') {
+                    styleDescription = '融合2000年代的复古元素，Y2K美学，大胆色彩和印花，展现复古未来感。';
+                }
+            }
+            
+            // 更新风格描述
+            document.querySelector('.bg-white.rounded-xl.shadow-md.p-5.mb-5 p').textContent = styleDescription || '简约、舒适且注重细节的风格，搭配合适的色调和配饰，营造个人独特魅力。';
+        });
+        
+        // 轮播图逻辑
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.carousel-container .rounded-full');
+        
+        function updateCarousel() {
+            const carouselSlide = document.querySelector('.carousel-slide');
+            carouselSlide.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('bg-opacity-100');
+                    indicator.classList.remove('bg-opacity-50');
+                } else {
+                    indicator.classList.add('bg-opacity-50');
+                    indicator.classList.remove('bg-opacity-100');
+                }
+            });
+        }
+        
+        // 点击指示器切换轮播图
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+        
+        // 自动轮播
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }, 3000);
+    </script>
+</body>
+</html> 
