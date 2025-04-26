@@ -1,0 +1,364 @@
+/**index.wxss**/
+page {
+  background-color: #f9fafb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 120rpx;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 标题栏样式 */
+.header {
+  background-color: #8b5cf6;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  color: white;
+}
+
+/* 内容区样式 */
+.content {
+  padding: 30rpx;
+}
+
+/* 卡片通用样式 */
+.weather-card {
+  background-color: white;
+  border-radius: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  transition: all 0.3s ease;
+}
+
+.weather-card:active {
+  transform: translateY(-5rpx);
+}
+
+/* 今日天气卡片 */
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.weather-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.weather-date {
+  font-size: 26rpx;
+  color: #6b7280;
+}
+
+.weather-content {
+  display: flex;
+  align-items: center;
+}
+
+.weather-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-icon {
+  font-size: 100rpx;
+  margin-bottom: 10rpx;
+}
+
+.weather-temp {
+  font-size: 60rpx;
+  font-weight: bold;
+}
+
+.weather-desc {
+  color: #6b7280;
+}
+
+.weather-details {
+  flex: 1;
+}
+
+.weather-detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.weather-detail-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 近日天气卡片 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.forecast-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx;
+  transition: all 0.2s ease;
+}
+
+.forecast-item:active {
+  transform: scale(1.05);
+}
+
+.forecast-day {
+  font-size: 26rpx;
+  color: #6b7280;
+  margin-bottom: 10rpx;
+}
+
+.forecast-icon {
+  font-size: 48rpx;
+  margin: 10rpx 0;
+}
+
+.forecast-temp {
+  font-weight: bold;
+}
+
+/* 穿搭风格卡片 */
+.style-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.style-item {
+  background-color: #f3f4f6;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  text-align: center;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+
+.style-item.active {
+  background-color: #f3e8ff;
+  border: 4rpx solid #8b5cf6;
+  color: #7c3aed;
+  font-weight: 500;
+}
+
+.style-item:active {
+  opacity: 0.8;
+}
+
+.generate-btn {
+  width: 100%;
+  background-color: #8b5cf6;
+  color: white;
+  font-weight: bold;
+  padding: 24rpx 0;
+  border-radius: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.generate-btn:active {
+  background-color: #7c3aed;
+}
+
+.btn-icon {
+  margin-right: 10rpx;
+}
+
+/* 弹出层样式 */
+.popup-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.popup-mask.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80%;
+  background-color: white;
+  border-top-left-radius: 48rpx;
+  border-top-right-radius: 48rpx;
+  z-index: 999;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.popup-container.show {
+  transform: translateY(0);
+}
+
+.popup {
+  padding: 40rpx;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.popup-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.close-icon {
+  font-size: 36rpx;
+  color: #6b7280;
+}
+
+.popup-section {
+  margin-bottom: 30rpx;
+}
+
+.popup-section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.popup-text {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.carousel-container {
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+
+.carousel {
+  height: 400rpx;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin-top: auto;
+}
+
+.popup-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0;
+  border-radius: 16rpx;
+  font-weight: 500;
+  border: none;
+}
+
+.primary-btn {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.secondary-btn {
+  background-color: #f3e8ff;
+  color: #8b5cf6;
+}
+
+/* 底部导航栏 */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background-color: white;
+  border-top: 1rpx solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10rpx 0;
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6b7280;
+}
+
+.tab-item.active {
+  color: #8b5cf6;
+}
+
+.tab-icon {
+  font-size: 48rpx;
+  margin-bottom: 6rpx;
+}
+
+.tab-text {
+  font-size: 24rpx;
+}
