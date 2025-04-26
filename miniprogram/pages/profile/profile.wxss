@@ -1,0 +1,418 @@
+/**profile.wxss**/
+page {
+  background-color: #f9fafb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 120rpx;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 标题栏样式 */
+.header {
+  background-color: #8b5cf6;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  color: white;
+}
+
+/* 个人资料展示区 */
+.profile-header {
+  height: 300rpx;
+  background: linear-gradient(to right, #8b5cf6, #d946ef);
+}
+
+.profile-content {
+  padding: 0 30rpx;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -90rpx;
+}
+
+.profile-avatar {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  border: 6rpx solid white;
+  object-fit: cover;
+}
+
+.user-name-container {
+  text-align: center;
+  margin: 20rpx 0 40rpx;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.user-description {
+  color: #6b7280;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  display: block;
+}
+
+/* 卡片通用样式 */
+.profile-card {
+  background-color: white;
+  border-radius: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  transition: all 0.3s ease;
+}
+
+.profile-card:active {
+  transform: translateY(-3rpx);
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+/* 个人信息卡片 */
+.info-list {
+  width: 100%;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.info-label {
+  display: flex;
+  align-items: center;
+}
+
+.info-icon {
+  margin-right: 20rpx;
+  width: 40rpx;
+  text-align: center;
+  color: #8b5cf6;
+}
+
+.info-text {
+  color: #4b5563;
+}
+
+.info-value {
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-icon {
+  color: #d1d5db;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+}
+
+.divider {
+  border-top: 1rpx solid #f3f4f6;
+  margin: 5rpx 0;
+}
+
+/* 收藏卡片 */
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.view-all {
+  color: #8b5cf6;
+  font-size: 26rpx;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+}
+
+.collection-item {
+  background-color: #f3f4f6;
+  border-radius: 16rpx;
+  padding: 10rpx;
+  overflow: hidden;
+}
+
+.collection-image {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.collection-title {
+  font-size: 26rpx;
+  color: #4b5563;
+  display: block;
+}
+
+.collection-date {
+  font-size: 22rpx;
+  color: #9ca3af;
+  display: block;
+}
+
+/* 首次进入引导 */
+.onboarding {
+  padding: 30rpx;
+}
+
+.onboarding-header {
+  text-align: center;
+  margin: 60rpx 0;
+}
+
+.onboarding-icon {
+  font-size: 120rpx;
+  color: #8b5cf6;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.onboarding-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.onboarding-subtitle {
+  color: #6b7280;
+  margin-top: 10rpx;
+  display: block;
+}
+
+.onboarding-card {
+  background-color: white;
+  border-radius: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20rpx);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 城市选择 */
+.search-bar {
+  background-color: #f3f4f6;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+
+.search-icon {
+  margin-right: 20rpx;
+  color: #8b5cf6;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  background-color: transparent;
+}
+
+.search-button {
+  position: absolute;
+  right: 20rpx;
+  color: #9ca3af;
+}
+
+.city-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20rpx;
+}
+
+.city-item {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-radius: 16rpx;
+  padding: 16rpx 0;
+  text-align: center;
+}
+
+.city-item.active {
+  background-color: #f3e8ff;
+  color: #8b5cf6;
+  font-weight: 500;
+}
+
+/* 性别选择 */
+.gender-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30rpx;
+}
+
+.gender-option {
+  background-color: #f3f4f6;
+  border: 2rpx solid #e5e7eb;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.gender-option.active {
+  background-color: #f3e8ff;
+  border: 4rpx solid #8b5cf6;
+}
+
+.gender-icon {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #6b7280;
+}
+
+.gender-option.active .gender-icon {
+  background-color: #e9d5ff;
+  color: #8b5cf6;
+}
+
+.gender-info {
+  margin-left: 20rpx;
+}
+
+.gender-title {
+  font-weight: 500;
+  color: #4b5563;
+  display: block;
+}
+
+.gender-option.active .gender-title {
+  color: #7c3aed;
+}
+
+.gender-desc {
+  font-size: 24rpx;
+  color: #6b7280;
+  margin-top: 6rpx;
+  display: block;
+}
+
+/* 个人描述 */
+.description-input {
+  width: 100%;
+  height: 200rpx;
+  background-color: #f3f4f6;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.char-count {
+  text-align: right;
+  font-size: 24rpx;
+  color: #9ca3af;
+}
+
+/* 完成按钮 */
+.complete-btn {
+  width: 100%;
+  background-color: #8b5cf6;
+  color: white;
+  font-weight: bold;
+  padding: 24rpx 0;
+  border-radius: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60rpx;
+  border: none;
+}
+
+.btn-icon {
+  margin-right: 10rpx;
+}
+
+/* 底部导航栏 */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background-color: white;
+  border-top: 1rpx solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10rpx 0;
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6b7280;
+}
+
+.tab-item.active {
+  color: #8b5cf6;
+}
+
+.tab-icon {
+  font-size: 48rpx;
+  margin-bottom: 6rpx;
+}
+
+.tab-text {
+  font-size: 24rpx;
+} 

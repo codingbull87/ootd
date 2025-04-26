@@ -1,0 +1,217 @@
+<!--profile.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <!-- 小程序标题栏 -->
+  <view class="header">
+    <view class="title">个人中心</view>
+    <view class="header-icons">
+      <text class="icon">⚙️</text>
+    </view>
+  </view>
+
+  <!-- 个人资料展示（非首次进入） -->
+  <view class="profile-info" wx:if="{{isProfileCompleted}}">
+    <view class="profile-header"></view>
+    
+    <view class="profile-content">
+      <view class="avatar-container">
+        <image src="{{userInfo.avatarUrl || defaultAvatarUrl}}" class="profile-avatar" mode="aspectFill"></image>
+      </view>
+      
+      <view class="user-name-container">
+        <text class="user-name">{{userInfo.nickName || '用户昵称'}}</text>
+        <text class="user-description">「{{userInfo.description}}」</text>
+      </view>
+      
+      <!-- 个人信息卡片 -->
+      <view class="profile-card">
+        <view class="card-title">个人信息</view>
+        
+        <view class="info-list">
+          <view class="info-item" bindtap="editCity">
+            <view class="info-label">
+              <text class="info-icon">📍</text>
+              <text class="info-text">所在城市</text>
+            </view>
+            <view class="info-value">
+              <text>{{userInfo.city}}</text>
+              <text class="arrow-icon">›</text>
+            </view>
+          </view>
+          
+          <view class="divider"></view>
+          
+          <view class="info-item" bindtap="switchGender">
+            <view class="info-label">
+              <text class="info-icon">⚥</text>
+              <text class="info-text">性别</text>
+            </view>
+            <view class="info-value">
+              <text>{{userInfo.gender === 'male' ? '男生' : '女生'}}</text>
+              <text class="arrow-icon">›</text>
+            </view>
+          </view>
+          
+          <view class="divider"></view>
+          
+          <view class="info-item" bindtap="editDescription">
+            <view class="info-label">
+              <text class="info-icon">✏️</text>
+              <text class="info-text">个人描述</text>
+            </view>
+            <view class="info-value">
+              <text>{{userInfo.description}}</text>
+              <text class="arrow-icon">›</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 我的收藏 -->
+      <view class="profile-card">
+        <view class="collection-header">
+          <text class="card-title">我的收藏</text>
+          <text class="view-all" bindtap="viewAllCollections">查看全部</text>
+        </view>
+        
+        <view class="collection-grid">
+          <view class="collection-item" wx:for="{{collections}}" wx:key="index">
+            <image src="{{item.image}}" mode="aspectFill" class="collection-image"></image>
+            <text class="collection-title">{{item.title}}</text>
+            <text class="collection-date">{{item.date}}</text>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 更多功能 -->
+      <view class="profile-card">
+        <view class="info-list">
+          <view class="info-item" bindtap="viewHistory">
+            <view class="info-label">
+              <text class="info-icon">🕒</text>
+              <text class="info-text">历史记录</text>
+            </view>
+            <text class="arrow-icon">›</text>
+          </view>
+          
+          <view class="divider"></view>
+          
+          <view class="info-item" bindtap="shareToFriends">
+            <view class="info-label">
+              <text class="info-icon">🔗</text>
+              <text class="info-text">分享给好友</text>
+            </view>
+            <text class="arrow-icon">›</text>
+          </view>
+          
+          <view class="divider"></view>
+          
+          <view class="info-item" bindtap="rateUs">
+            <view class="info-label">
+              <text class="info-icon">⭐</text>
+              <text class="info-text">评价我们</text>
+            </view>
+            <text class="arrow-icon">›</text>
+          </view>
+          
+          <view class="divider"></view>
+          
+          <view class="info-item" bindtap="getHelp">
+            <view class="info-label">
+              <text class="info-icon">❓</text>
+              <text class="info-text">帮助与反馈</text>
+            </view>
+            <text class="arrow-icon">›</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 首次进入引导 -->
+  <view class="onboarding" wx:if="{{!isProfileCompleted}}">
+    <view class="onboarding-header">
+      <text class="onboarding-icon">👤</text>
+      <text class="onboarding-title">欢迎使用天气穿搭</text>
+      <text class="onboarding-subtitle">完善你的个人信息，获取专属穿搭推荐</text>
+    </view>
+    
+    <!-- 城市选择 -->
+    <view class="onboarding-card">
+      <text class="card-title">请选择你的城市</text>
+      
+      <view class="search-bar">
+        <text class="search-icon">📍</text>
+        <input type="text" placeholder="输入你所在的城市" bindinput="onCityInput" class="search-input" />
+        <text class="search-button">🔍</text>
+      </view>
+      
+      <view class="city-grid">
+        <view class="city-item {{selectedCity === '北京' ? 'active' : ''}}" 
+              bindtap="selectCity" data-city="北京">北京</view>
+        <view class="city-item {{selectedCity === '上海' ? 'active' : ''}}" 
+              bindtap="selectCity" data-city="上海">上海</view>
+        <view class="city-item {{selectedCity === '广州' ? 'active' : ''}}" 
+              bindtap="selectCity" data-city="广州">广州</view>
+        <view class="city-item {{selectedCity === '深圳' ? 'active' : ''}}" 
+              bindtap="selectCity" data-city="深圳">深圳</view>
+        <view class="city-item {{selectedCity === '杭州' ? 'active' : ''}}" 
+              bindtap="selectCity" data-city="杭州">杭州</view>
+        <view class="city-item {{selectedCity === '成都' ? 'active' : ''}}" 
+              bindtap="selectCity" data-city="成都">成都</view>
+      </view>
+    </view>
+    
+    <!-- 性别选择 -->
+    <view class="onboarding-card">
+      <text class="card-title">请选择你的性别</text>
+      
+      <view class="gender-options">
+        <view class="gender-option {{selectedGender === 'male' ? 'active' : ''}}" 
+              bindtap="selectGender" data-gender="male">
+          <view class="gender-icon">♂</view>
+          <view class="gender-info">
+            <text class="gender-title">男生</text>
+            <text class="gender-desc">运动休闲、日系潮流风等</text>
+          </view>
+        </view>
+        
+        <view class="gender-option {{selectedGender === 'female' ? 'active' : ''}}" 
+              bindtap="selectGender" data-gender="female">
+          <view class="gender-icon">♀</view>
+          <view class="gender-info">
+            <text class="gender-title">女生</text>
+            <text class="gender-desc">甜酷风、温柔风等</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 个人描述 -->
+    <view class="onboarding-card">
+      <text class="card-title">添加个人描述</text>
+      
+      <textarea placeholder="描述一下你的穿衣风格喜好、身材特点等，帮助我们推荐更适合你的穿搭" 
+                class="description-input" bindinput="onDescriptionInput" value="{{userDescription}}"></textarea>
+      
+      <view class="char-count">{{descriptionLength}}/100</view>
+    </view>
+    
+    <!-- 完成按钮 -->
+    <button class="complete-btn" bindtap="completeSetup">
+      <text class="btn-icon">✓</text>
+      <text>完成设置</text>
+    </button>
+  </view>
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<view class="tabbar">
+  <view class="tab-item" bindtap="navigateToIndex">
+    <text class="tab-icon">👕</text>
+    <text class="tab-text">OOTD</text>
+  </view>
+  <view class="tab-item active">
+    <text class="tab-icon">👤</text>
+    <text class="tab-text">我的</text>
+  </view>
+</view> 

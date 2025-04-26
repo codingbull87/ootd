@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/profile/profile",
     "pages/logs/logs"
   ],
   "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "天气穿搭",
+    "navigationBarBackgroundColor": "#8b5cf6"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

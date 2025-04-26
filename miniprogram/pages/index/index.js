@@ -129,7 +129,7 @@ Page({
     });
   },
   
-  // 导航到个人页面
+  // 导航到个人中心页面
   navigateToProfile() {
     wx.navigateTo({
       url: '../profile/profile'
